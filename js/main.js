@@ -1,10 +1,20 @@
 //let montoPrestamo = prompt("Ingrese el monto del prestamos que desea solicitar:");
 
 //console.log("el monto ingresado es de:", parseFloat(montoPrestamo)); 
+function Prestamo() {
+    let montoPrestamo = parseFloat(prompt("Ingrese el monto del préstamo:"));
+    let tasaAnualPrestamo = parseFloat(prompt("Ingrese la tasa de interés anual (%):"));
+    let mesesPrestamo = parseInt(prompt("Ingrese la cantidad de meses para pagar el préstamo:"));
+    
+    if (isNaN(montoPrestamo) || isNaN(tasaAnualPrestamo) || isNaN(mesesPrestamo)) {
+        console.log("Por favor, ingrese números válidos.");
+    } else {
+        calcularPrestamo(montoPrestamo, tasaAnualPrestamo, mesesPrestamo);
+    }
+    
+}
 
-let montoPrestamo = parseFloat(prompt("Ingrese el monto del préstamo:"));
-let tasaAnualPrestamo = parseFloat(prompt("Ingrese la tasa de interés anual (%):"));
-let mesesPrestamo = parseInt(prompt("Ingrese la cantidad de meses para pagar el préstamo:"));
+
 
 
 
@@ -24,8 +34,6 @@ function calcularPrestamo(monto, tasaAnual, meses) {
         monto -= amortizacion;
 }}
 
-if (isNaN(montoPrestamo) || isNaN(tasaAnualPrestamo) || isNaN(mesesPrestamo)) {
-    console.log("Por favor, ingrese números válidos.");
-} else {
-    calcularPrestamo(montoPrestamo, tasaAnualPrestamo, mesesPrestamo);
-}
+
+
+Prestamo()
