@@ -78,7 +78,7 @@ class Prestamo {
 
         console.log(detallesPrestamo);
         console.log("Cuotas mensuales:");
-        console.table(cuotasMensuales)
+        console.table(cuotasMensuales);
 
         this.prestamos.push({
             detalles: detallesPrestamo,
