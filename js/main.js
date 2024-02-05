@@ -1,10 +1,7 @@
-
 class Prestamo {
     constructor() {
-        this.prestamos = [];
+        this.prestamos = JSON.parse(localStorage.getItem("prestamos")) || [];
     }
-
-   
 
     calcularPrestamo(monto, tasaAnual, meses) {
         let tasaMensual = tasaAnual / 12 / 100;
@@ -26,37 +23,59 @@ class Prestamo {
             monto -= amortizacion;
         }
 
-        console.log(detallesPrestamo);
-        console.log("Cuotas mensuales:");
-        console.table(cuotasMensuales, ["mes", "cuota", "interes", "amortizacion"]);
-
         this.prestamos.push({
             detalles: detallesPrestamo,
             cuotas: cuotasMensuales
         });
+
+        localStorage.setItem("prestamos", JSON.stringify(this.prestamos));
+
+        this.mostrarDetallesPrestamo(detallesPrestamo);
+        this.mostrarCuotasMensuales(cuotasMensuales);
     }
 
-    filtrarPrestamosPorMeses(meses) {
-        return this.prestamos.filter(prestamo => prestamo.cuotas.length === meses);
+    mostrarDetallesPrestamo(detalles) {
+        document.getElementById("detallesPrestamo").textContent = detalles;
     }
 
-   
+    mostrarCuotasMensuales(cuotas) {
+        let tbody = document.getElementById("cuotasMensuales").getElementsByTagName("tbody")[0];
+        tbody.innerHTML = "";
+
+        cuotas.forEach(cuota => {
+            let fila = tbody.insertRow();
+            let celdaMes = fila.insertCell();
+            let celdaCuota = fila.insertCell();
+            let celdaInteres = fila.insertCell();
+            let celdaAmortizacion = fila.insertCell();
+
+            celdaMes.textContent = cuota.mes;
+            celdaCuota.textContent = cuota.cuota;
+            celdaInteres.textContent = cuota.interes;
+            celdaAmortizacion.textContent = cuota.amortizacion;
+        });
+
+    }
+
+    
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const prestamoApp = new Prestamo();
 
-
- function solicitarPrestamo() {
-	 
-        let montoPrestamo = parseFloat(prompt("Ingrese el monto del préstamo:"));
-        let tasaAnualPrestamo = parseFloat(prompt("Ingrese la tasa de interés anual (%):"));
-        let mesesPrestamo = parseInt(prompt("Ingrese la cantidad de meses para pagar el préstamo:"));
+    document.getElementById("prestamoForm").addEventListener("submit", (event) => {
+        event.preventDefault();
     
-        if (isNaN(montoPrestamo) || isNaN(tasaAnualPrestamo) || isNaN(mesesPrestamo)) {
-            console.log("Por favor, ingrese números válidos.");
-        } else {
-			const prestamoApp = new Prestamo();
-            prestamoApp.calcularPrestamo(montoPrestamo, tasaAnualPrestamo, mesesPrestamo);
+        const monto = parseFloat(document.getElementById("monto").value);
+        const tasaAnual = parseFloat(document.getElementById("tasaAnual").value);
+        const meses = parseInt(document.getElementById("meses").value);
+    
+        isNaN(monto) || isNaN(tasaAnual) || isNaN(meses) ? alert("Por favor, ingrese números válidos.") : prestamoApp.calcularPrestamo(monto, tasaAnual, meses);
+    });
         }
-    }
+    );
 
-solicitarPrestamo();
+    
+
+
+    

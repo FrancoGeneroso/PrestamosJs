@@ -2,23 +2,88 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Simulador de prestamos</title>
+    <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/main.js"></script>
-    <title>Prestamos</title>
-    
+    <script defer src="js/main.js"></script>
 </head>
 <body>
-    <head>
-
-    </head>
-    <main>
-        <h1>Prestamos - Calculador de intereses</h1>
-        <h2>Con sistema de amortización Frances</h2>
-
-    </main>
-    <footer>
-
-    </footer>
-    
+    <div class="container">
+        <h1>CALCULAR PRÉSTAMOS</h1>
+        <div class="cotizador">
+            <form id="prestamoForm">
+                <div class="form-group">
+                    <label for="monto">Monto del préstamo:</label>
+                    <input type="number" id="monto" required>
+                </div>
+                <div class="form-group">
+                    <label for="tasaAnual">Tasa de interés anual (%):</label>
+                    <input type="number" id="tasaAnual" required>
+                </div>
+                <div class="form-group">
+                    <label for="meses">Cantidad de meses para pagar el préstamo:</label>
+                    <input type="number" id="meses" required>
+                </div>
+                <button type="submit" id="calcularPrestamoButton" class="calcularPrestamos">Calcular préstamo</button>
+            </form>
+            <button id="showHistoryButton">Ver historial de consultas</button>
+        </div>
+        <div class="detalles">
+            <h2>Detalles del préstamo:</h2>
+            <p id="detallesPrestamo"></p>
+            <h3>Cuotas mensuales:</h3>
+            <table id="cuotasMensuales">
+                <thead>
+                    <tr>
+                        <th>Mes</th>
+                        <th>Cuota</th>
+                        <th>Interés</th>
+                        <th>Amortización</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
+
+
+
+<!--<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de prestamos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="js/main.js"></>
+</head>
+<body>
+    <h1 class="center separador">SIMULADOR DE PRESTAMOS BANCARIOS</h1>
+    <div class="div-cotizador">
+        <h2 class="center separador">Completa los datos para cotizar</h2>
+
+        <label for="labelMonto">Ingrese el monto del préstamo:</label>
+        <input type="number" id="monto" placeholder="Monto"></input>
+
+        <label for="labelTasa">Ingrese la tasa de interés anual (%):</label>
+        <input type="number" id="tasa" placeholder="Tasa"></input>
+
+        <label for="labelMeses">Ingrese la cantidad de meses para pagar el préstamo:</label>
+        <input type="number" id="meses" value="12" min="20" max="100">
+
+        <div class="center separador">
+            <button class="button button-outline">Calcular prestamo</button>
+        </div>
+        <div class="center separador">
+            <p class="importe">Cuota estimada: $
+                <span id="valorPoliza">0.00</span>
+                <span class="guardar" title="Guardar en historial">💾</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
