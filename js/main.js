@@ -134,10 +134,13 @@ class Prestamo {
     
           await prestamoApp.calcularPrestamo(monto, tasaAnual, meses);
     
+         // $("body").addClass("loading")
+         const element = document.getElementById("mainBody");
+         element.classList.add("loading");
           setTimeout(() => {
 
                                 
-    
+   
             
             const tbody = document.getElementById("cuotasMensuales").getElementsByTagName("tbody")[0];
             tbody.innerHTML = "";
@@ -156,6 +159,7 @@ class Prestamo {
             });
     
             prestamoApp.mostrarDetallesPrestamo(prestamoApp.detallesPrestamo);
+            element.classList.remove("loading");
           }, 2000); 
         });
     

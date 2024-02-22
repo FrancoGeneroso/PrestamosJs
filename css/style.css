@@ -103,21 +103,38 @@ th, td {
     display: none;
   }
 
-/*.button-container {
-    position: relative;
-  }
-  
-  .gift-image {
-    height: 32px;
-    width: 32px;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    display: none;
-  }
-  
-  .calcularPrestamos {
-    position: relative;
-    padding-right: 42px; 
-  }
+
+    .modal-loading {
+        display:    none;
+        position:   fixed;
+        z-index:    2000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+        background: rgba( 255, 255, 255, .8 ) 
+                    url('../images/loading.gif') 
+                    50% 50% 
+                    no-repeat;
+    }
+
+    body.loading {
+        overflow: hidden;   
+    }
+
+    
+    body.loading .modal-loading {
+        display: block;
+    }
+
+   
+    @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    }
+    
