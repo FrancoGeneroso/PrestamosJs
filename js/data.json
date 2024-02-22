@@ -1,0 +1,67 @@
+[
+    {
+      "detalles": "Detalles del préstamo: Monto: 1000000, Tasa Anual: 5%, Meses: 10",
+      "cuotas": [
+        {
+          "mes": 1,
+          "cuota": "26321.67",
+          "interes": "5208.33",
+          "amortizacion": "21113.34"
+        },
+        {
+          "mes": 2,
+          "cuota": "26321.67",
+          "interes": "5085.00",
+          "amortizacion": "21236.67"
+        },
+        {
+          "mes": 3,
+          "cuota": "26321.67",
+          "interes": "4958.33",
+          "amortizacion": "21373.34"
+        },
+        {
+          "mes": 4,
+          "cuota": "26321.67",
+          "interes": "4828.25",
+          "amortizacion": "21503.42"
+        },
+        {
+          "mes": 5,
+          "cuota": "26321.67",
+          "interes": "4694.76",
+          "amortizacion": "21626.91"
+        },
+        {
+          "mes": 6,
+          "cuota": "26321.67",
+          "interes": "4557.88",
+          "amortizacion": "21763.79"
+        },
+        {
+          "mes": 7,
+          "cuota": "26321.67",
+          "interes": "4417.62",
+          "amortizacion": "21904.05"
+        },
+        {
+          "mes": 8,
+          "cuota": "26321.67",
+          "interes": "4273.98",
+          "amortizacion": "22047.69"
+        },
+        {
+          "mes": 9,
+          "cuota": "26321.67",
+          "interes": "4126.98",
+          "amortizacion": "22194.69"
+        },
+        {
+          "mes": 10,
+          "cuota": "26321.67",
+          "interes": "4000.62",
+          "amortizacion": "22321.05"
+        }
+      ]
+    }
+  ]

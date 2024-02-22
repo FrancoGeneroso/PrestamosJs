@@ -83,6 +83,41 @@ th, td {
     text-align: center}
 
 
+.verPrestamos{ width: 45%;}
 
 
+.spinner-border-sm {
+    width: 1.25em;
+    height: 1.25em;
+  }
+  
+  .calcularPrestamos {
+    position: relative;
+  }
+  
+  #spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
 
+/*.button-container {
+    position: relative;
+  }
+  
+  .gift-image {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: none;
+  }
+  
+  .calcularPrestamos {
+    position: relative;
+    padding-right: 42px; 
+  }

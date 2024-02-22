@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.2/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3s4Wz6iJgD/+ub2oU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3wDpgfTgo4JhXQtgM" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
@@ -24,15 +27,22 @@
                     <label for="meses">Cantidad de meses para pagar el préstamo:</label>
                     <input type="number" id="meses" required>
                 </div>
-                <button type="submit" id="calcularPrestamoButton" class="calcularPrestamos">Calcular préstamo</button>
+                
+                <button type="submit" id="calcularPrestamoButton" class="calcularPrestamos">
+                    Calcular préstamo
+                    <div class="spinner-border spinner-border-sm" role="status" id="spinner" style="display: none;">
+                      <span class="sr-only">Cargando...</span>
+                    </div>
+                </button>
             </form>
-            <button id="showHistoryButton">Ver historial de consultas</button>
+            <button id="showPrestamos" class="verPrestamos">Ver prestamos solicitados</button>            
         </div>
+        
         <div class="detalles">
             <h2>Detalles del préstamo:</h2>
             <p id="detallesPrestamo"></p>
             <h3>Cuotas mensuales:</h3>
-            <table id="cuotasMensuales">
+            <table id="cuotasMensuales" class="table table-bordered mt-5">
                 <thead>
                     <tr>
                         <th>Mes</th>
@@ -44,46 +54,11 @@
                 <tbody>
                 </tbody>
             </table>
+            <div id="table-container"></div>
         </div>
     </div>
 </body>
 </html>
 
 
-
-<!--<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Simulador de prestamos</title>
-    <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="js/main.js"></>
-</head>
-<body>
-    <h1 class="center separador">SIMULADOR DE PRESTAMOS BANCARIOS</h1>
-    <div class="div-cotizador">
-        <h2 class="center separador">Completa los datos para cotizar</h2>
-
-        <label for="labelMonto">Ingrese el monto del préstamo:</label>
-        <input type="number" id="monto" placeholder="Monto"></input>
-
-        <label for="labelTasa">Ingrese la tasa de interés anual (%):</label>
-        <input type="number" id="tasa" placeholder="Tasa"></input>
-
-        <label for="labelMeses">Ingrese la cantidad de meses para pagar el préstamo:</label>
-        <input type="number" id="meses" value="12" min="20" max="100">
-
-        <div class="center separador">
-            <button class="button button-outline">Calcular prestamo</button>
-        </div>
-        <div class="center separador">
-            <p class="importe">Cuota estimada: $
-                <span id="valorPoliza">0.00</span>
-                <span class="guardar" title="Guardar en historial">💾</span>
-            </p>
-        </div>
-    </div>
-</body>
-</html>
 
